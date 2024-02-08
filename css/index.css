@@ -1,0 +1,44 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+
+:root{
+
+    --codeBG: #15202b;
+
+}
+
+
+main {
+    padding: 2rem 1rem;
+}
+
+
+main section >h1{
+    font-size: 2.5rem;
+     word-break: break-word;
+     text-align: center;
+}
+
+main section div:nth-child(2) p:nth-child(1){
+    margin: 10px 0 1rem 0;
+}
+
+
+main section div p:nth-child(1){
+    margin: 4rem 0 1rem 0;
+     word-break: break-word;
+     font-size: 1.3rem;
+}
+
+main section div p:nth-child(2){
+    background: var(--codeBG);
+    width: 100%;
+    height: 100%;
+    padding: 1rem;
+    color: #fff;
+    word-break: break-word;
+}

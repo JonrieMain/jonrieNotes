@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jonrie Notes</title>
+
+    <!-- css -->
+    <link rel="stylesheet" href="./css/index.css">
+</head>
+<body>
+
+
+<main>
+   
+
+    <section>
+        <h1>PHP</h1>
+
+        <div>
+        <p>Prevent HTML,Javascript,SQL Injection</p>
+
+            <p>
+            <code>
+            
+            $variableName = $_POST['VariableNameFromFrontend'];<br><br>
+            $variableName = htmlspecialchars($variableName, ENT_QUOTES, 'UTF-8');;<br><br>
+            $variableName = strip_tags(trim($variableName));<br><br>
+            $variableName = mysqli_real_escape_string($con, $vCode);
+            </code>
+            </p>
+     </div>
+
+
+
+
+     <div>
+        <p>Get the file,video or image from a form and put a unique name</p>
+
+            <p>
+            <code>
+            
+                //  get the file uploaded <br>
+                $video = $_FILES['uploadVideo'];<br><br><br>
+
+                // video name with concatenation of create_unique_id() and pathinfo and PATHINFO_EXTENSION<br>
+                $videoName = mysqli_real_escape_string($con, '../assets/videos/'.create_unique_id().'.'.pathinfo($video['name'],PATHINFO_EXTENSION));<br><br><br>
+            
+                
+        
+                
+            //check sizeof video<br>
+                if($video['size'] > 629145600){<br>
+                    $error_msg[] = 'Video size exceed 600mb';<br>
+                }else{<br>
+            
+                    // create a copy and move to folder<br>
+                   move_uploaded_file($video['tmp_name'], $videoName);<br>
+            
+                }<br><br>
+
+
+                //make sure form have attribute <br>
+                enctype= multipart/form-data
+           
+            </code>
+            </p>
+     </div>
+
+
+    </section>
+
+
+
+<br><br>
+<hr>
+<br><br>
+
+<section>
+
+    <h1>Javascript</h1>
+
+    <div>
+        <p>Get parameter value in JS</p>
+
+            <p>
+            <code>
+            
+                let commentTo = new URLSearchParams(window.location.search).get('play');
+
+            </code>
+            </p>
+     </div>
+
+     <div>
+        <p>Get parameter or Fragment value (#fragmentName) in JS</p>
+
+            <p>
+            <code>
+            
+                // Get the current URL <br>
+                var currentUrl = window.location.href; <br><br>
+
+                // Extract the fragment identifier
+                var fragmentIdentifier = currentUrl.split('#')[1];<br><br>
+
+                console.log(fragmentIdentifier); // This will output "home"
+
+            </code>
+            </p>
+     </div>
+
+     
+
+
+
+</section>
+
+
+
+
+
+
+
+
+
+</main>
+
+    
+</body>
+</html>
