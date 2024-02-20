@@ -68,6 +68,71 @@
      </div>
 
 
+
+
+
+
+     <div>
+        <p>Secure PHP session</p>
+
+            <p>
+            <code>
+            
+                ini_set('session.use_only_cookies',1); <br>
+                ini_set('session.use_strict_mode',1);<br><br>
+                
+                //set params of cookie <br>
+                session_set_cookie_params([<br>
+                
+                    'lifetime' => 1800,<br>
+                    'domain' => 'localhost',<br>
+                    'path' => '/',<br>
+                    'secure' => true,<br>
+                    'httponly' => true <br>
+                
+                ]); <br> <br>
+                
+                //session start <br>
+                session_start();<br><br>
+                
+
+                //check if session exist <br>
+                if(!isset($_SESSION['session_exist'])){ <br>
+                    session_regenerate_id(true); <br>
+                    session_create_id(); <br>
+                    $_SESSION['session_exist'] = time();<br>
+                }else{ <br> <br>
+                
+                    $timeInterval = 30 * 60; <br> <br>
+                
+                    if(time() - $_SESSION['session_exist'] >= $timeInterval){ <br>
+                        session_regenerate_id(true); <br>
+                        $_SESSION['session_exist'] = time(); <br>
+                    } <br> <br>
+                
+                } <br>
+            
+                
+           
+            </code>
+            </p>
+     </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     </section>
 
 
@@ -115,6 +180,8 @@
 
 
 </section>
+
+
 
 
 
